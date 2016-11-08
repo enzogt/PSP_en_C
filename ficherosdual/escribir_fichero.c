@@ -9,10 +9,11 @@
 int main(int argc, char const *argv[]) {
 	
 	int fd; //Descriptor de fichero // file descriptor.
-	char mensaje[] = "Hola clase.";
+	char mensaje[] = "Hola clase.\n";
+	int char_escritos = 1;
+	int longitud;
 
-
-	fd = open("./fichero2.txt", O_WRONLY);
+	fd = open("./fichero2.txt", O_WRONLY | O_TRUNC);
 
 
 	if (fd == -1){
@@ -21,9 +22,14 @@ int main(int argc, char const *argv[]) {
 		exit(-1);
 	}
 
-	write(fd, mensaje, strlen(mensaje) * sizeof(char));
-	close(fd);
+	longitud = strlen(mensaje);
 
+	while (char_escritos != 0){
+		char_escritos = write(fd, mensaje, longitud * sizeof(char));
+		longitud -= char_escritos;
+	}
+	
+	close(fd);
 
 	return 0;
 }
