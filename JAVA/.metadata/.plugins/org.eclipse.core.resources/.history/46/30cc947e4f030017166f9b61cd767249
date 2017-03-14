@@ -1,0 +1,27 @@
+import java.net.*;
+import java.util.*;
+
+
+public class ClientSocketManager extends Thread {
+
+
+	Socket socket;
+	ArrayList<String> mensajes;
+	
+	public ClientSocketManager(Socket socket, ArrayList<String> mensajes) {
+		super();
+		this.socket = socket;
+		this.mensajes = mensajes;
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		super.run();
+	}
+	
+	
+
+	
+
+}

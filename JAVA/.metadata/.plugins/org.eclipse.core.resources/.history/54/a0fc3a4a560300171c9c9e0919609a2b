@@ -1,0 +1,49 @@
+import java.io.IOException;
+import java.net.*;
+import java.util.*;
+
+
+public class Server {
+
+	private static final int maxClientes = 5;
+	private static final int puerto = 5555;
+	private static ServerSocket socketServidor;
+	private static ArrayList<String> mensajes;
+	private static ArrayList<Socket> sockets;
+	
+	public static void main(String[] args) throws IOException {
+		
+		socketServidor = new ServerSocket(puerto);
+		mensajes = new ArrayList<String>();
+		sockets = new ArrayList<Socket>();
+		
+		for (int i = 0; i < maxClientes; i++){
+			
+			System.out.println("\n> Esperando al cliente " + (i + 1) + " de " +  maxClientes);
+			Socket socket = socketServidor.accept();
+			
+			
+			sockets.add(socket);
+			
+			
+			System.out.println("Conectandose a un cliente");
+			ClientSocketManager clientSocketManager = new ClientSocketManager(socket, mensajes);
+			clientSocketManager.start();
+			
+		}
+		
+		for (Socket socket : sockets){
+			
+			System.out.println("Info: " + socket.getInetAddress().toString());
+		}
+
+		System.out.println("\n\n>>>Tarea finalizada.\n\n");
+		socketServidor.close();
+		
+		for (String mensaje : mensajes){
+			
+			System.out.println(mensaje);
+		}
+	}
+
+}

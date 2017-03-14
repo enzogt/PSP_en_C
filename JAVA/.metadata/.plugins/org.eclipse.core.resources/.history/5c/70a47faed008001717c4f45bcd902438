@@ -1,0 +1,12 @@
+
+public class Servidor {
+
+	public final String DIR_SERVIDOR = "localhost";
+	public final int PUERTO = 7777;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

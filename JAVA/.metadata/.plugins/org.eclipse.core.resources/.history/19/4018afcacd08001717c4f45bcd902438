@@ -1,0 +1,18 @@
+import java.io.IOException;
+import java.net.ServerSocket;
+
+
+public class Servidor {
+
+	public static String DIR_SERVIDOR = "localhost";
+	public static int PUERTO = 7777;
+
+	static ServerSocket serverSocket;
+	
+	public static void main(String[] args) throws IOException {
+
+		serverSocket = new ServerSocket(PUERTO);
+
+	}
+
+}

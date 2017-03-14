@@ -1,0 +1,29 @@
+import java.io.IOException;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
+
+public class Client {
+
+	private static Socket socket;
+	private static final int puerto = 5555;
+	private static String server = "localhost";
+
+	
+	public static void main(String[] args) {
+		
+		try {
+			
+			socket = new Socket(server, puerto);
+			
+			
+		} catch (UnknownHostException e) {
+			System.err.println("El servidor no se encuentra.");
+		} catch (IOException e) {
+			System.err.println("Error de I/O");
+		}
+		
+
+	}
+
+}

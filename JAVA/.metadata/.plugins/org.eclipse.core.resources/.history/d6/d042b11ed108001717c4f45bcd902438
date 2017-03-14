@@ -1,0 +1,12 @@
+
+public class Generador extends Thread {
+
+	
+	
+	public void run() {
+		super.run();
+	}
+
+	
+
+}

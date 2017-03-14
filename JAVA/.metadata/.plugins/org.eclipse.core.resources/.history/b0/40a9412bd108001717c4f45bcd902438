@@ -1,0 +1,23 @@
+import java.net.Socket;
+
+
+public class Generador extends Thread {
+
+	Socket s;
+
+	public Generador(Socket s) {
+		super();
+		this.s = s;
+	}
+
+
+
+	public void run() {
+		super.run();
+		
+		
+	}
+
+	
+
+}

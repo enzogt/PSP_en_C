@@ -1,0 +1,33 @@
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
+
+
+public class Generador extends Thread {
+
+	Socket s;
+	char[] opciones = {'1', 'X', '2'};
+	char[] quiniela = new char[15];
+
+	public Generador(Socket s) {
+		super();
+		this.s = s;
+	}
+
+
+
+	public void run() {
+		
+		try {
+			
+			DataOutputStream dos = new DataOutputStream(s.getOutputStream());
+		
+		
+		
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+}

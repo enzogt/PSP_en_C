@@ -1,0 +1,32 @@
+import java.io.IOException;
+import java.net.*;
+import java.util.*;
+
+
+public class Server {
+
+	private static final int maxClientes = 10;
+	private static final int puerto = 5555;
+	private static ServerSocket socketServidor;
+	private static ArrayList<String> mensajes;
+	
+	public static void main(String[] args) throws IOException {
+		
+		socketServidor = new ServerSocket(puerto);
+		mensajes = new ArrayList<String>();
+		
+		for (int i = 0; i < maxClientes; i++){
+			
+			System.out.println("Esperando un cliente");
+			Socket socket = socketServidor.accept();
+			
+			System.out.println("Conectandose a un cliente");
+			ClientSocketManager clientSocketManager = new ClientSocketManager(socket, mensajes);
+			
+			clientSocketManager.start();
+			
+		}
+
+	}
+
+}
