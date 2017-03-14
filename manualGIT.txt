@@ -1,3 +1,7 @@
+git clone git@github.com:enzogt/PSP_en_C.git
+
+----------------------------------
+
 git status
 git add .
 git status
