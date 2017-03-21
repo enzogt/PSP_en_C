@@ -1,0 +1,16 @@
+package pruebasUDP;
+
+import java.net.DatagramPacket;
+
+public class Server {
+
+	public static void main(String[] args) {
+		
+		final String cadena = "¡Hola mundo!";
+		final byte[] bytes = cadena.getBytes();
+		
+		DatagramPacket dp = new DatagramPacket(bytes, bytes.length);
+
+	}
+
+}

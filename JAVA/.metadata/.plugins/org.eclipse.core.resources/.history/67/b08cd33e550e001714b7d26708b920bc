@@ -1,0 +1,15 @@
+package pruebasUDP;
+
+import java.net.DatagramPacket;
+
+public class Receptor {
+
+	public static void main(String[] args) {
+		
+
+		DatagramPacket dp = new DatagramPacket();
+		
+
+	}
+
+}

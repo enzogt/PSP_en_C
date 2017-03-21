@@ -1,0 +1,28 @@
+package pruebasUDP;
+
+import java.net.DatagramPacket;
+import java.net.InetAddress;
+
+public class Receptor {
+
+	public static void main(String[] args) {
+		
+		byte[] buffer = new byte[1024];
+
+		DatagramPacket dp = new DatagramPacket(buffer, buffer.length);
+
+		int bytesRecibidos = dp.getLength();
+		
+		String mensaje = new String(dp.getData());
+
+		InetAddress emisor = dp.getAddress();
+		
+		System.out.println("Info emisor: " + emisor.toString());
+		
+		System.out.println("Número bytes: " + bytesRecibidos);
+		
+		System.out.println("Mensaje: " + mensaje);
+		
+	}
+
+}

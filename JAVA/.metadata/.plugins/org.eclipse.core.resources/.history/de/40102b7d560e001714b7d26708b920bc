@@ -1,0 +1,21 @@
+package pruebasUDP;
+
+import java.net.DatagramPacket;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+public class Emisor {
+
+	public static void main(String[] args) throws UnknownHostException {
+		
+		final String cadena = "¡Hola mundo!";
+		final byte[] bytes = cadena.getBytes();
+		final InetAddress direccion = InetAddress.getLocalHost();
+		final int puerto = 7777;
+		
+		
+		DatagramPacket dp = new DatagramPacket(bytes, bytes.length, direccion, puerto);
+
+	}
+
+}

@@ -1,0 +1,35 @@
+
+
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.SocketException;
+
+public class Receptor {
+
+	public static void main(String[] args) throws IOException {
+		
+		final int puerto = 7777;
+		byte[] buffer = new byte[1024];
+
+		DatagramPacket recibido = new DatagramPacket(buffer, buffer.length);
+		DatagramSocket socket = new DatagramSocket(puerto);
+
+		socket.receive(recibido);
+		
+		int bytesRecibidos = recibido.getLength();
+		
+		String mensaje = new String(recibido.getData());
+
+		InetAddress emisor = recibido.getAddress();
+		
+		System.out.println("Info emisor: " + emisor.toString());
+		
+		System.out.println("Número bytes: " + bytesRecibidos);
+		
+		System.out.println("Mensaje: " + mensaje);
+		
+	}
+
+}
